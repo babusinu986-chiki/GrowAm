@@ -1,0 +1,265 @@
+.records-back-link {
+  color: #e9eee4;
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+.records-back-link:hover {
+  color: #f2a33a;
+}
+
+.records-shell {
+  display: grid;
+  width: min(100% - 44px, 780px);
+  gap: 38px;
+  margin: 0 auto;
+  padding: 55px 0 65px;
+}
+
+.records-intro {
+  margin-bottom: -5px;
+}
+
+.records-intro h1 {
+  margin: 0;
+  color: var(--forest-deep);
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5.5vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.records-intro h1 span {
+  color: #81966f;
+}
+
+.records-intro > p:last-child {
+  margin: 12px 0 0;
+  color: #657268;
+  font-size: 0.9rem;
+}
+
+.records-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 15px;
+}
+
+.records-section-heading h2,
+.completion-summary h2 {
+  margin: 0;
+  color: var(--forest-deep);
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+.profile-record-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 14px;
+  color: #98611b;
+  background: var(--mango-pale);
+  font-size: 1.45rem;
+}
+
+.profile-record-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.profile-record {
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid rgba(28, 63, 45, 0.07);
+  border-radius: 13px;
+  background: var(--paper);
+  box-shadow: 0 5px 18px rgba(46, 64, 45, 0.035);
+}
+
+.profile-record dt {
+  margin-bottom: 9px;
+  color: #778278;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.profile-record dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--forest-deep);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.completion-summary {
+  padding: 23px;
+  border: 1px solid #e9dfc7;
+  border-radius: 15px;
+  background: #fff7e8;
+}
+
+.completion-count {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 15px 0 0;
+  color: var(--forest-deep);
+}
+
+.completion-count span:first-child {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.completion-count span:last-child {
+  color: #778278;
+  font-size: 0.78rem;
+}
+
+.records-note {
+  margin: 9px 0 0;
+  color: #7b7869;
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+.records-total-points {
+  margin: 11px 0 0;
+  color: #956322;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.history-list {
+  display: grid;
+  gap: 12px;
+}
+
+.history-day {
+  padding: 17px 19px;
+  border: 1px solid rgba(28, 63, 45, 0.07);
+  border-radius: 13px;
+  background: var(--paper);
+}
+
+.history-day-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #ecece2;
+}
+
+.history-day-heading h3 {
+  margin: 0;
+  color: var(--forest-deep);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.history-day-heading span {
+  color: #79847b;
+  font-size: 0.68rem;
+}
+
+.history-task-list {
+  display: grid;
+  gap: 8px;
+  margin: 11px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.history-task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #536457;
+  font-size: 0.78rem;
+}
+
+.history-task-points {
+  flex: 0 0 auto;
+  color: #956322;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.history-task-photos {
+  padding: 0 0 7px;
+  list-style: none;
+}
+
+.history-photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-left: 4px;
+}
+
+.history-photos img {
+  width: min(150px, 38vw);
+  height: 100px;
+  border: 1px solid #e2e5d9;
+  border-radius: 8px;
+  background: #eef0e7;
+  object-fit: cover;
+}
+
+.history-empty {
+  padding: 22px;
+  border: 1px dashed #d9ddcf;
+  border-radius: 12px;
+  color: #758075;
+  background: rgba(255, 253, 247, 0.65);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.records-message {
+  padding: 12px 15px;
+  border-radius: 9px;
+  color: #8c4c34;
+  background: #f7e9dc;
+  font-size: 0.76rem;
+}
+
+.records-message[hidden] {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .records-shell {
+    width: min(100% - 36px, 500px);
+    gap: 30px;
+    padding: 39px 0 47px;
+  }
+
+  .profile-record-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .profile-record {
+    padding: 14px 15px;
+  }
+
+  .records-section-heading h2,
+  .completion-summary h2 {
+    font-size: 1.35rem;
+  }
+}

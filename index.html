@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#173c2e">
+    <meta name="description" content="Growam turns small, self-reported eco-friendly actions into a growing mango tree game.">
+    <title>Growam — small actions, growing impact</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Growam home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 26.5c-7.2-2.2-11-7.5-9.1-13.1C8.5 8.7 15 6.4 23.9 7.2c.8 8.7-1.1 16.8-7.9 19.3Z" fill="currentColor"/>
+            <path d="M10.8 21.4c3.5-4.4 6.5-7 11.9-10.4" stroke="#F8F5E9" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>growam<span class="brand-period">.</span></span>
+      </a>
+      <p class="header-tagline">Small actions, a growing impact.</p>
+      <div class="header-profile">
+        <div class="header-datetime">
+          <span class="today-label" id="today-label" aria-label="Today's date"></span>
+          <span class="header-time" id="time-label" aria-label="Current local time"></span>
+        </div>
+        <div class="header-user-line">
+          <span class="header-nickname" id="nickname-display">Grower</span>
+          <button class="profile-icon-button" id="edit-profile" type="button" aria-label="Edit profile" title="Edit profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="8" r="3.2"></circle>
+              <path d="M5.5 19c.5-3.4 2.8-5.2 6.5-5.2s6 1.8 6.5 5.2"></path>
+              <path d="m18.1 5.1.5 1.1 1.2.5-1.2.5-.5 1.2-.5-1.2-1.2-.5 1.2-.5.5-1.1Z"></path>
+            </svg>
+          </button>
+        </div>
+        <a class="records-link" href="data/index.html" aria-label="Visit profile and task history">Visit task history <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="welcome-title">
+        <p class="eyebrow">YOUR LITTLE PATCH OF GOOD</p>
+        <h1 id="welcome-title">A little good, <span>growing daily.</span></h1>
+        <p class="intro-copy">Choose a mission, do it, and tap <strong>Do</strong> to add its points. Your mango tree grows as your points add up.</p>
+      </section>
+
+      <section class="profile-section" aria-labelledby="profile-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR JOURNEY</p>
+            <h2 id="profile-title">Your profile</h2>
+          </div>
+          <span class="profile-sparkle" aria-hidden="true">✳</span>
+        </div>
+        <form class="profile-form" id="profile-form">
+          <label>
+            Nickname
+            <input type="text" name="nickname" maxlength="40" autocomplete="nickname" placeholder="Your nickname">
+          </label>
+          <label>
+            Instagram
+            <input type="text" name="instagramHandle" maxlength="80" autocomplete="off" placeholder="@handle" aria-describedby="social-help">
+          </label>
+          <label>
+            Facebook
+            <input type="text" name="facebookProfileName" maxlength="80" autocomplete="off" placeholder="Name or link" aria-describedby="social-help">
+          </label>
+          <button class="profile-save-button" type="submit">Save Profile</button>
+        </form>
+        <p class="social-help" id="social-help">Optional. 80 characters max each. Saved only in this browser.</p>
+        <div class="stats-grid">
+          <article class="stat-card points-card">
+            <span class="stat-icon" aria-hidden="true">✳</span>
+            <p class="stat-label">Total points</p>
+            <p class="stat-value"><span id="total-points">0</span><span class="stat-unit">pts</span></p>
+            <p class="stat-footnote">Every little action counts</p>
+          </article>
+          <article class="stat-card level-card">
+            <span class="stat-icon level-icon" aria-hidden="true">↗</span>
+            <p class="stat-label">Current level</p>
+            <p class="stat-value" id="level-name">Speed Starter</p>
+            <p class="stat-footnote">Level <span id="level-number">1</span> · your tree is growing</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="tree-section" aria-labelledby="tree-heading">
+        <div class="tree-card">
+          <div class="tree-copy">
+            <p class="eyebrow light-eyebrow">YOUR MANGO TREE</p>
+            <h2 id="tree-heading">Rooted in small steps.</h2>
+            <p class="tree-description" id="tree-description">A little care today makes room for new growth tomorrow.</p>
+            <div class="growth-details">
+              <div class="growth-label-row">
+                <span id="growth-caption">Speed Starter</span>
+                <span id="growth-percent">0%</span>
+              </div>
+              <div class="progress-track" id="growth-track" role="progressbar" aria-label="Progress to the next tree level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span class="progress-fill" id="growth-fill"></span>
+              </div>
+              <p class="growth-next" id="growth-next">5 points to Post Scout</p>
+            </div>
+          </div>
+          <div class="tree-art-wrap" id="tree-scene" data-stage="0" aria-label="Mango tree at Speed Starter stage" role="group">
+            <div class="sun-disc" aria-hidden="true"></div>
+            <svg class="mango-tree" viewBox="0 0 360 340" role="presentation" aria-hidden="true">
+              <defs>
+                <linearGradient id="soil-shade" x1="180" y1="262" x2="180" y2="316" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#A96F43"/>
+                  <stop offset="1" stop-color="#70482F"/>
+                </linearGradient>
+                <linearGradient id="trunk-shade" x1="176" y1="112" x2="194" y2="290" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#A76D3F"/>
+                  <stop offset="1" stop-color="#70462D"/>
+                </linearGradient>
+                <radialGradient id="leaf-shade" cx="0" cy="0" r="1" gradientTransform="matrix(0 80 -91 0 179 127)" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#80A95E"/>
+                  <stop offset="1" stop-color="#376447"/>
+                </radialGradient>
+              </defs>
+              <ellipse cx="180" cy="296" rx="130" ry="27" fill="#173C2E" opacity=".17"/>
+              <path d="M48 281c31-20 72-29 132-29s101 9 132 29c-9 26-50 43-132 43S57 307 48 281Z" fill="url(#soil-shade)"/>
+              <path d="M57 279c37-15 77-20 123-20s86 5 123 20" stroke="#D4A36D" stroke-width="4" stroke-linecap="round" opacity=".72"/>
+              <path d="M92 286c9-4 20-6 31-6m112 4c9-4 18-5 28-5" stroke="#5A8A4E" stroke-width="5" stroke-linecap="round"/>
+              <g class="tree-stage stage-seed">
+                <path d="M180 282c-7-12-7-25 0-38 10 10 12 24 0 38Z" fill="#F2A33A" stroke="#C8732D" stroke-width="2"/>
+                <path d="M180 279c1-10 4-18 10-25" stroke="#658D4C" stroke-width="3" stroke-linecap="round"/>
+                <path d="M180 274c-1 11-6 18-12 23m12-10c7 4 11 9 13 15" stroke="#EBD3AA" stroke-width="2" stroke-linecap="round"/>
+              </g>
+              <g class="tree-stage stage-sprout">
+                <path d="M180 282c-3-28-2-50 1-71" stroke="#6B8B4D" stroke-width="7" stroke-linecap="round"/>
+                <path d="M181 231c-22-22-37-27-51-20 8 20 27 30 51 24ZM181 220c17-24 32-30 47-25-5 21-23 33-47 31Z" fill="#76A95A"/>
+                <path d="M130 211c17 5 33 11 51 20m47-35c-17 10-32 20-47 35" stroke="#4F7947" stroke-width="2" stroke-linecap="round"/>
+              </g>
+              <g class="tree-stage stage-sapling">
+                <path d="M178 282c6-50 4-91 6-131" stroke="url(#trunk-shade)" stroke-width="15" stroke-linecap="round"/>
+                <path d="M182 221c-21-21-37-34-58-42m61 23c20-19 34-33 54-42m-55 3c-10-18-13-33-12-51" stroke="#815332" stroke-width="8" stroke-linecap="round"/>
+                <g class="leaf-sway">
+                  <path d="M141 115c-18-25-8-54 17-61 16-4 31 5 36 19 24-14 51-3 53 22 24 8 29 35 12 51 7 23-13 43-36 37-17 21-46 18-58-2-22 7-43-10-38-32-20-10-14-35 6-42 1-23 21-34 41-25Z" fill="url(#leaf-shade)"/>
+                  <path d="M134 141c24-5 47-2 69 10 17-22 35-37 59-48" stroke="#A3BE7A" stroke-width="3" stroke-linecap="round" opacity=".68"/>
+                  <path d="M198 98c-10-17-31-17-40-2-12 20 7 38 25 33 15-4 23-18 15-31Z" fill="#F2A33A"/>
+                  <path d="M197 98c-3 11-8 20-17 27" stroke="#C8732D" stroke-width="3" stroke-linecap="round"/>
+                </g>
+              </g>
+              <g class="tree-stage stage-guardian">
+                <path d="M177 282c11-65 6-119 10-172" stroke="url(#trunk-shade)" stroke-width="19" stroke-linecap="round"/>
+                <path d="M183 237c-25-25-46-43-72-53m78 23c28-26 48-45 76-57m-75 34c-15-26-20-47-17-73m23 49c20-19 31-37 41-59" stroke="#815332" stroke-width="10" stroke-linecap="round"/>
+                <g class="leaf-sway">
+                  <path d="M125 125c-22-31-8-69 22-77 21-5 40 8 44 27 28-18 61-3 63 27 31 10 37 44 15 64 10 30-15 55-44 47-21 27-58 22-73-3-28 10-55-12-48-41-26-13-18-45 8-54 1-30 27-43 53-31Z" fill="#4D7A49"/>
+                  <path d="M111 137c29-7 61-1 91 15 24-31 51-51 84-65" stroke="#9FBD78" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+                  <path d="M164 105c-9-16-28-17-37-4-10 17 5 32 21 29 14-2 22-14 16-25Z" fill="#F2A33A"/>
+                  <path d="M230 132c-12-15-30-12-35 2-7 16 10 29 24 22 12-6 17-17 11-24Z" fill="#F2A33A"/>
+                  <path d="M164 105c-3 9-7 16-15 22m79 5c-5 8-11 14-20 19" stroke="#C8732D" stroke-width="2.5" stroke-linecap="round"/>
+                </g>
+              </g>
+              <g class="tree-stage stage-hero">
+                <path d="M176 282c14-75 5-146 11-207" stroke="url(#trunk-shade)" stroke-width="22" stroke-linecap="round"/>
+                <path d="M183 239c-30-33-56-56-92-68m99 42c35-33 64-56 101-69m-99 28c-20-32-28-62-23-96m31 67c26-27 41-52 54-82m-58 111c-6-30-2-51 12-72" stroke="#815332" stroke-width="12" stroke-linecap="round"/>
+                <g class="leaf-sway">
+                  <path d="M105 125c-30-39-13-87 25-97 27-7 52 10 56 34 36-24 77-4 79 34 39 12 47 56 19 81 13 38-19 70-56 60-27 34-74 28-93-4-36 13-69-15-61-52-33-17-22-57 10-69 1-38 35-55 67-39Z" fill="url(#leaf-shade)"/>
+                  <path d="M86 141c39-9 77-1 116 19 31-40 65-65 108-83" stroke="#ABC781" stroke-width="3.5" stroke-linecap="round" opacity=".7"/>
+                  <path d="M151 92c-10-19-33-20-44-5-13 21 7 40 27 36 16-3 24-18 17-31Zm90 45c-13-16-34-13-40 3-8 19 11 34 28 26 15-7 19-21 12-29Zm-72 50c-12-16-32-13-38 2-7 18 11 32 26 25 14-7 18-19 12-27Z" fill="#F2A33A"/>
+                  <path d="M150 92c-4 11-9 20-19 28m61 41c-5 10-12 18-23 24m72-48c-5 10-12 18-22 24" stroke="#C8732D" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M194 116c-14-21-39-25-55-11-14-15-33-13-41-1 8 22 34 30 54 17 17 15 35 11 42-5Z" fill="#6B9650"/>
+                </g>
+              </g>
+            </svg>
+            <span class="tree-level-tag" id="tree-level-tag">LEVEL 1</span>
+            <span class="point-pop" id="point-pop" aria-hidden="true"></span>
+          </div>
+          <span class="tree-card-decoration decoration-one" aria-hidden="true">✳</span>
+          <span class="tree-card-decoration decoration-two" aria-hidden="true">·</span>
+        </div>
+        <div class="hero-celebration" id="hero-celebration" role="status" aria-live="polite" hidden>
+          <span class="celebration-fruit" aria-hidden="true">🥭</span>
+          <div>
+            <strong>Mango Hero! You did it!</strong>
+            <p>Congratulations on growing your game tree. Celebrate your consistency: refill a bottle, switch off unused lights, and keep caring for trees.</p>
+          </div>
+          <button class="celebration-close" id="close-celebration" type="button" aria-label="Dismiss celebration">×</button>
+          <span class="celebration-sparkle sparkle-a" aria-hidden="true">✦</span>
+          <span class="celebration-sparkle sparkle-b" aria-hidden="true">✧</span>
+          <span class="celebration-sparkle sparkle-c" aria-hidden="true">✦</span>
+        </div>
+      </section>
+
+      <section class="missions-section" aria-labelledby="missions-heading">
+        <div class="section-heading missions-heading">
+          <div>
+            <p class="eyebrow">SMALL ACTIONS, STEADY GROWTH</p>
+            <h2 id="missions-heading">Your missions</h2>
+          </div>
+          <span class="mission-count" id="mission-count">0 of 3 daily done</span>
+        </div>
+        <p class="section-description">Choose a small action and tap <strong>Do</strong> when you’ve done it. Tap <strong>Undo</strong> to take it back. Daily missions return tomorrow; the tree-care bonus returns next week. Missions are self-reported.</p>
+
+        <div class="mission-list" id="mission-list">
+          <article class="mission-card" data-mission="refill">
+            <span class="mission-icon icon-bottle" aria-hidden="true">↟</span>
+            <div class="mission-copy">
+              <span class="mission-type">DAILY MISSION</span>
+              <h3>Refill a reusable bottle</h3>
+              <p>Top up a bottle you already have instead of buying a drink.</p>
+            </div>
+            <div class="mission-action">
+              <span class="mission-points">+5 <span>pts</span></span>
+              <div class="mission-buttons">
+                <button class="claim-button" type="button" data-claim="refill" aria-pressed="false">Do</button>
+                <button class="undo-button" type="button" data-undo="refill" disabled>Undo</button>
+              </div>
+            </div>
+            <div class="mission-evidence" id="evidence-refill" hidden>
+              <label class="upload-label" for="photos-refill">Add Pictures</label>
+              <input class="photo-input" id="photos-refill" type="file" accept="image/*" multiple data-photos="refill">
+              <p class="photo-help">Up to 3 pictures per task. Stored only in this browser.</p>
+              <div class="photo-previews" data-preview="refill"></div>
+            </div>
+          </article>
+          <article class="mission-card" data-mission="lights">
+            <span class="mission-icon icon-sun" aria-hidden="true">☼</span>
+            <div class="mission-copy">
+              <span class="mission-type">DAILY MISSION</span>
+              <h3>Turn off unnecessary lights</h3>
+              <p>Switch off lights in an empty room or when daylight is enough.</p>
+            </div>
+            <div class="mission-action">
+              <span class="mission-points">+5 <span>pts</span></span>
+              <div class="mission-buttons">
+                <button class="claim-button" type="button" data-claim="lights" aria-pressed="false">Do</button>
+                <button class="undo-button" type="button" data-undo="lights" disabled>Undo</button>
+              </div>
+            </div>
+            <div class="mission-evidence" id="evidence-lights" hidden>
+              <label class="upload-label" for="photos-lights">Add Pictures</label>
+              <input class="photo-input" id="photos-lights" type="file" accept="image/*" multiple data-photos="lights">
+              <p class="photo-help">Up to 3 pictures per task. Stored only in this browser.</p>
+              <div class="photo-previews" data-preview="lights"></div>
+            </div>
+          </article>
+          <article class="mission-card" data-mission="water">
+            <span class="mission-icon icon-water" aria-hidden="true">≈</span>
+            <div class="mission-copy">
+              <span class="mission-type">DAILY MISSION</span>
+              <h3>Save water while brushing or washing</h3>
+              <p>Turn off the tap while brushing or use only the water you need while washing.</p>
+            </div>
+            <div class="mission-action">
+              <span class="mission-points">+10 <span>pts</span></span>
+              <div class="mission-buttons">
+                <button class="claim-button" type="button" data-claim="water" aria-pressed="false">Do</button>
+                <button class="undo-button" type="button" data-undo="water" disabled>Undo</button>
+              </div>
+            </div>
+            <div class="mission-evidence" id="evidence-water" hidden>
+              <label class="upload-label" for="photos-water">Add Pictures</label>
+              <input class="photo-input" id="photos-water" type="file" accept="image/*" multiple data-photos="water">
+              <p class="photo-help">Up to 3 pictures per task. Stored only in this browser.</p>
+              <div class="photo-previews" data-preview="water"></div>
+            </div>
+          </article>
+          <article class="mission-card bonus-card" data-mission="tree">
+            <span class="mission-icon icon-tree" aria-hidden="true">♧</span>
+            <div class="mission-copy">
+              <span class="mission-type bonus-type">WEEKLY BONUS</span>
+              <h3>Plant or care for a real tree</h3>
+              <p>Plant a tree or give one nearby a little care. This action is self-reported.</p>
+            </div>
+            <div class="mission-action">
+              <span class="mission-points">+20 <span>pts</span></span>
+              <div class="mission-buttons">
+                <button class="claim-button" type="button" data-claim="tree" aria-pressed="false">Do</button>
+                <button class="undo-button" type="button" data-undo="tree" disabled>Undo</button>
+              </div>
+            </div>
+            <div class="mission-evidence" id="evidence-tree" hidden>
+              <label class="upload-label" for="photos-tree">Add Pictures</label>
+              <input class="photo-input" id="photos-tree" type="file" accept="image/*" multiple data-photos="tree">
+              <p class="photo-help">Up to 3 pictures per task. Stored only in this browser.</p>
+              <div class="photo-previews" data-preview="tree"></div>
+            </div>
+          </article>
+        </div>
+        <p class="weekly-status" id="weekly-status"></p>
+        <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="reward-section" aria-labelledby="reward-heading">
+        <div class="reward-card">
+          <div class="reward-flower" aria-hidden="true">✿</div>
+          <div class="reward-copy">
+            <p class="eyebrow">A LITTLE SOMETHING TO KEEP</p>
+            <h2 id="reward-heading">Your progress card, ready to share.</h2>
+            <p id="reward-description">Keep a square snapshot of your Growam tree and current progress.</p>
+          </div>
+          <div class="reward-actions">
+            <button class="download-button" id="download-card" type="button">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M10 2.75v9m0 0 3.25-3.25M10 11.75 6.75 8.5M3.5 13.5v2.25c0 .55.45 1 1 1h11c.55 0 1-.45 1-1V13.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Download progress card
+            </button>
+            <button class="caption-button" id="copy-caption" type="button">Copy caption</button>
+          </div>
+        </div>
+      </section>
+      <div class="reset-row">
+        <button class="reset-button" id="reset-progress" type="button">Reset progress</button>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <span class="footer-leaf" aria-hidden="true">✳</span>
+      <p>Progress stays on this device. Missions are self-reported — your actions are yours to celebrate.</p>
+    </footer>
+  </body>
+</html>

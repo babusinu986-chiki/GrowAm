@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#173c2e">
+    <meta name="description" content="View your Growam profile and dated task completion history stored on this device.">
+    <title>Growam — profile &amp; task history</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="records.css">
+    <script src="records.js" defer></script>
+  </head>
+  <body class="records-page">
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Growam home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 26.5c-7.2-2.2-11-7.5-9.1-13.1C8.5 8.7 15 6.4 23.9 7.2c.8 8.7-1.1 16.8-7.9 19.3Z" fill="currentColor"/>
+            <path d="M10.8 21.4c3.5-4.4 6.5-7 11.9-10.4" stroke="#F8F5E9" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span>growam<span class="brand-period">.</span></span>
+      </a>
+      <a class="records-back-link" href="../index.html">Back to your tree</a>
+    </header>
+
+    <main class="records-shell">
+      <section class="records-intro">
+        <p class="eyebrow">YOUR GROWAM RECORD</p>
+        <h1>Profile &amp; <span>task history.</span></h1>
+        <p>Details and completions saved in this browser, including weekends.</p>
+      </section>
+
+      <section aria-labelledby="profile-heading">
+        <div class="records-section-heading">
+          <div>
+            <p class="eyebrow">YOUR DETAILS</p>
+            <h2 id="profile-heading">Profile</h2>
+          </div>
+          <span class="profile-record-icon" aria-hidden="true">✿</span>
+        </div>
+        <dl class="profile-record-grid" id="profile-details"></dl>
+      </section>
+
+      <section class="completion-summary" aria-labelledby="completion-heading">
+        <p class="eyebrow">EVERY SMALL STEP COUNTS</p>
+        <h2 id="completion-heading">Tasks completed</h2>
+        <p class="completion-count"><span id="completed-count">0</span><span>total completions</span></p>
+        <p class="records-total-points"><span id="total-points">0</span> total points</p>
+        <p class="records-note">This is the number of recorded task completions. Missions can be completed on weekdays and weekends.</p>
+      </section>
+
+      <section aria-labelledby="history-heading">
+        <div class="records-section-heading history-heading">
+          <div>
+            <p class="eyebrow">LOCAL DATE HISTORY</p>
+            <h2 id="history-heading">Completed tasks by day</h2>
+          </div>
+        </div>
+        <p class="records-message" id="records-message" role="status" aria-live="polite" hidden></p>
+        <div class="history-list" id="history-list"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span class="footer-leaf" aria-hidden="true">✳</span>
+      <p>Your Growam details and task history are stored in this browser only.</p>
+    </footer>
+  </body>
+</html>
